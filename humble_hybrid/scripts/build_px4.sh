@@ -2,10 +2,11 @@
 set -eo pipefail
 
 PX4_VERSION=$1
+PX4_DIR=$2
 
-git clone  --recurse-submodules -b ${PX4_VERSION} https://github.com/PX4/PX4-Autopilot.git /home/${USER}/PX4-Autopilot
+git clone  --recurse-submodules -b ${PX4_VERSION} https://github.com/PX4/PX4-Autopilot.git ${PX4_DIR}/PX4-Autopilot
 
-cd /home/${USER}/PX4-Autopilot
+cd ${PX4_DIR}/PX4-Autopilot
 
 # Patch to allow setting parameters via env variables
 git apply - <<'EOF'
